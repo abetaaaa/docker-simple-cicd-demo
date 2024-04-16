@@ -1,10 +1,10 @@
 FROM node:18 AS base
 CMD [ "bash" ]
 
-# Build
+# test-and-build
 FROM base AS test-and-build
 COPY . /workspace
-WORKDIR /workdspace
+WORKDIR /workspace
 ARG REACT_APP_API_SERVER
 RUN npm ci && npm run test && npm run build
 
